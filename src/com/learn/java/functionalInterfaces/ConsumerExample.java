@@ -14,11 +14,21 @@ public class ConsumerExample {
         studentList.forEach(c2);
     }
 
+    public static void printNameAndActivities() {
+        Consumer<Student> c3 = (student) -> System.out.print(student.getName());
+        Consumer<Student> c4 = (student) -> System.out.println(student.getActivities());
+
+        List<Student> studentList = StudentDataBase.getAllStudents();
+
+        studentList.forEach(c3.andThen(c4));  // consumer chain
+    }
+
     public static void main(String[] args) {
 
         Consumer<String> c1 = (s) -> System.out.println(s.toUpperCase());
 
         c1.accept("java8");
         printName();
+        printNameAndActivities();
     }
 }
