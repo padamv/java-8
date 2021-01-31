@@ -27,5 +27,7 @@ public class RunnableLambdaExample {
 
         new Thread(runnableLambda).start();
         new Thread(runnableLambda1).start();
+
+        new Thread(() -> System.out.println("Inside Runnable 4")).start();
     }
 }
