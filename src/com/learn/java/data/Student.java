@@ -22,6 +22,10 @@ public class Student {
         
     }
 
+    public Student(String name) {
+        this.name = name;
+    }
+
     public String getGender() {
         return gender;
     }
