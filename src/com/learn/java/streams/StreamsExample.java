@@ -15,7 +15,7 @@ public class StreamsExample {
         Predicate<Student> studentPredicate = (student -> student.getGradeLevel() >= 3);
         Predicate<Student> studentGPAPredicate = (student -> student.getGpa() >= 3.9);
 
-        Map<String, List<String>> studentMap = StudentDataBase.getAllStudents().stream()
+        Map<String, List<String>> studentMap = StudentDataBase.getAllStudents().parallelStream()
                 .filter(studentPredicate)
                 .filter(studentGPAPredicate)
                 .collect(Collectors.toMap(Student::getName, Student::getActivities));
