@@ -13,6 +13,7 @@ public class StreamsFlatMapExample {
         List<String> studentActivities = StudentDataBase.getAllStudents().stream()  //Stream<Student>
                 .map(Student::getActivities)  // Stream<List<String>>
                 .flatMap(List::stream) // Stream<String>
+                .distinct()
                 .collect(Collectors.toList());
 
         return studentActivities;
