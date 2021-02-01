@@ -32,13 +32,7 @@ public class StreamReduceExample {
 
     public static Optional<Student> getHighestGPAStudent(){
         return StudentDataBase.getAllStudents().stream()
-                .reduce((s1,s2) -> {
-                        if(s1.getGpa() > s2.getGpa()){
-                            return s1;
-                        }else{
-                            return s2;
-                        }
-                });
+                .reduce((s1,s2) -> (s1.getGpa() > s2.getGpa()) ? s1 : s2);
     }
 
     public static void main(String[] args) {
