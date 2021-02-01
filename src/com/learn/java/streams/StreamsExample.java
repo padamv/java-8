@@ -13,9 +13,11 @@ public class StreamsExample {
     public static void main(String[] args) {
         // student name and the activities in a map
         Predicate<Student> studentPredicate = (student -> student.getGradeLevel() >= 3);
+        Predicate<Student> studentGPAPredicate = (student -> student.getGpa() >= 3.9);
 
         Map<String, List<String>> studentMap = StudentDataBase.getAllStudents().stream()
                 .filter(studentPredicate)
+                .filter(studentGPAPredicate)
                 .collect(Collectors.toMap(Student::getName, Student::getActivities));
 
         System.out.println(studentMap);
