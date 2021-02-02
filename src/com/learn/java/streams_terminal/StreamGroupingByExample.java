@@ -3,11 +3,12 @@ package com.learn.java.streams_terminal;
 import com.learn.java.data.Student;
 import com.learn.java.data.StudentDataBase;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.summingInt;
+import static java.util.stream.Collectors.*;
 
 public class StreamGroupingByExample {
 
@@ -45,9 +46,18 @@ public class StreamGroupingByExample {
         System.out.println(studentMap);
     }
 
+    public static void threeArgumentGroupBy() {
+        LinkedHashMap<String, Set<Student>> studentLinkedHashMap = StudentDataBase.getAllStudents()
+                .stream()
+                .collect(groupingBy(Student::getName, LinkedHashMap::new, toSet()));
+        System.out.println(studentLinkedHashMap);
+    }
+
     public static void main(String[] args) {
+
         //groupStudentsByGender();
         //customizeGroupingBy();
-        twoLevelGrouping_2();
+        //twoLevelGrouping_2();
+        threeArgumentGroupBy();
     }
 }
