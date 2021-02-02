@@ -22,11 +22,13 @@ public class ParallelStreamExample {
 
     public static int sumParallelStream(){
         return IntStream.rangeClosed(1, 100000)
-                .parallel()
+                .parallel()  //split the data in to multiple parts
                 .sum();
     }
 
     public static void main(String[] args) {
+        System.out.println(Runtime.getRuntime().availableProcessors());
+
         System.out.println("Sequential Stream Result: " +
                 checkPerformanceResult(ParallelStreamExample::sumSequentialStream, 20));
         System.out.println("Parallel Stream Result: " +
