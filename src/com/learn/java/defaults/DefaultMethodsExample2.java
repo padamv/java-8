@@ -33,14 +33,23 @@ public class DefaultMethodsExample2 {
         studentList.forEach(studentConsumer);
     }
 
+    public static void sortWithNullValues(List<Student> studentList){
+        System.out.println("After sortWithNullValues: ");
+        Comparator<Student> studentComparator = Comparator.nullsFirst(nameComparator);
+        studentList.sort(studentComparator);
+        studentList.forEach(studentConsumer);
+    }
+
     public static void main(String[] args) {
         List<Student> studentList = StudentDataBase.getAllStudents();
+        List<Student> studentList2 = StudentDataBase.getAllStudents2();
         System.out.println("Before sort: ");
-        studentList.forEach(studentConsumer);
+        studentList2.forEach(studentConsumer);
 
         //sortByName(studentList);
         //sortByGpa(studentList);
-        comparatorChaining(studentList);
+        //comparatorChaining(studentList);
+        sortWithNullValues(studentList2);
 
     }
 }
