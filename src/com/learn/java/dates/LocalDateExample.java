@@ -39,5 +39,17 @@ public class LocalDateExample {
         System.out.println("with TemporalAdjusters: " + localDate.with(TemporalAdjusters.firstDayOfMonth()));
         System.out.println("ChronoUnit minus: " + localDate.minus(1, ChronoUnit.YEARS));
 
+        //Unsupported
+
+        System.out.println("isSupported: " + localDate.isSupported(ChronoUnit.MINUTES));
+
+        // Additional Support methods
+
+        System.out.println("leapyear: " + localDate.isLeapYear());
+        System.out.println("leapyear: " + LocalDate.ofYearDay(2020, 01).isLeapYear());
+        System.out.println("isEqual: " + localDate.isEqual(localDate1));
+        System.out.println("isBefore: " + localDate.isBefore(localDate1));
+        System.out.println("isAfter: " + localDate.isAfter(localDate1));
+
     }
 }
