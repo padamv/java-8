@@ -2,6 +2,7 @@ package com.learn.java.dates;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
@@ -36,6 +37,7 @@ public class LocalDateExample {
         System.out.println("withYear: " + localDate.withYear(2019));
         System.out.println("with ChronoField: " + localDate.with(ChronoField.YEAR, 2020));
         System.out.println("with TemporalAdjusters: " + localDate.with(TemporalAdjusters.firstDayOfMonth()));
+        System.out.println("ChronoUnit minus: " + localDate.minus(1, ChronoUnit.YEARS));
 
     }
 }
